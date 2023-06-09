@@ -1,6 +1,8 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import Home from "./pages/home";
-import Transitions from "./pages/transactions";
+import Home from "./pages/home.vue";
+import Transitions from "./pages/transactions.vue";
+import TransactionDetails from "./pages/transaction-details.vue";
+
 const routes = [
   {
     path: "/",
@@ -9,6 +11,10 @@ const routes = [
   {
     path: "/transactions",
     component: Transitions,
+  },
+  {
+    path: "/transactions/:id",
+    component: TransactionDetails,
   },
 ];
 
