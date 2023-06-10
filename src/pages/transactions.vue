@@ -3,8 +3,8 @@
   <div class="item" v-for="transaction in transactions" :key="transaction.id">
     <router-link
       :to="{
-        name: `transaction-details-route`,
-        params: { id: transactions.id },
+        name: 'transaction-details-route',
+        params: { id: transaction.id },
       }"
       >{{ transaction.name }}</router-link
     >
@@ -15,24 +15,13 @@
 export default {
   data() {
     return {
-      transactions: [
-        {
-          id: 1,
-          name: "Đi siêu thị ngày 23/05",
-          price: 1000000,
-        },
-        {
-          id: 2,
-          name: "Thanh toán tiền nhà 09/06",
-          price: 2000000,
-        },
-        {
-          id: 3,
-          name: "Thanh toán momo 10/06",
-          price: 3000000,
-        },
-      ],
+      transactions: [],
     };
+  },
+  created() {
+    fetch(" http://localhost:3000/transactions")
+      .then((response) => response.json())
+      .then((data) => (this.transactions = data));
   },
 };
 </script>

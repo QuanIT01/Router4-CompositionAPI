@@ -22,7 +22,7 @@ const routes = [
   },
   {
     path: "/ts",
-    redirect: Transitions,
+    redirect: "/transactions",
   },
   {
     path: "/:pathMatch(.*)*",
