@@ -11,12 +11,12 @@ export default {
   components: {
     BaseNav: Nav,
   },
-  created() {
-    console.log(document.querySelector("h1"));
-  },
-  mounted() {
-    console.log(document.querySelector("h1"));
-  },
+  // created() {
+  //   console.log(document.querySelector("h1"));
+  // },
+  // mounted() {
+  //   console.log(document.querySelector("h1"));
+  // },
 };
 </script>
 
