@@ -12,7 +12,7 @@
   <!-- <button @click="onChangeSomething">Click me</button> -->
 </template>
 <script>
-import { computed, ref, reactive } from "vue";
+import { computed, ref, reactive, watch, watchEffect } from "vue";
 
 export default {
   setup() {
@@ -53,6 +53,18 @@ export default {
     //   //  console.log(firstName);
     //   // console.log(car);
     // }
+
+    // wathch dùng để theo dõi 1 biến nào đấy để làm mottj vấn đề nào đấy
+    watch(searchText, (newValue, oldValue) => {
+      console.log(newValue, oldValue);
+    });
+    //watchEffect giống computed nhưng ko trả ra dữ liệu
+    watchEffect(() => {
+      if (searchText.value) {
+        console.log("run agin");
+      }
+    });
+
     return {
       customersFiled,
       searchText,
