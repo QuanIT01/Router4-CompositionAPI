@@ -9,11 +9,12 @@
       {{ customer }}
     </li>
   </ul>
+  <p>{{ transactions }}</p>
   <!-- <button @click="onChangeSomething">Click me</button> -->
 </template>
 <script>
 import { computed, ref, reactive, watch, watchEffect } from "vue";
-
+import useTransactions from "../uses/fetchTransactions";
 export default {
   props: {
     theme: {
@@ -24,6 +25,9 @@ export default {
   },
   // eslint-disable-next-line vue/no-setup-props-destructure
   setup({ theme }, { emit }) {
+    const { transactions, fetchAll } = useTransactions();
+    fetchAll();
+
     console.log(theme);
     console.log(emit);
 
@@ -79,6 +83,7 @@ export default {
     return {
       customersFiled,
       searchText,
+      transactions,
       // secondName,
       // onChangeSomething,
     };
